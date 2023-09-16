@@ -1,0 +1,10 @@
+{
+	"theme": "Cyanide.sublime-theme",
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"font_size": 18,
+	"save_on_focus_lost": true,
+	"color_scheme": "Packages/Theme - Cyanide/Monocyanide.tmTheme",
+}

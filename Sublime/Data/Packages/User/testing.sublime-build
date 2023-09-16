@@ -1,0 +1,5 @@
+{
+    "cmd": ["../Sublime/Compiler/bin/g++", "$file", "-o", "${file_path}/${file_base_name}",],
+    "selector": "source.c++",
+    "working_dir": "$file_path"
+}
