@@ -13,11 +13,17 @@ const string io_file_path = "./";
 const string input_file = "input.txt";
 const string output_file = "output.txt";
 const string error_file = "error.txt";
-
+auto starttime = chrono::steady_clock::now();
 void io(){
 	freopen((io_file_path + input_file).c_str(), "r", stdin);
     freopen((io_file_path + output_file).c_str(), "w", stdout);
     freopen((io_file_path + error_file).c_str(), "w", stderr);
+    time_t Time; time(&Time);cerr << ctime(&Time) << endl;
+}
+
+void finsh(){
+	cerr << "\n\nElapsed time: " << chrono::duration_cast<chrono::milliseconds>
+    (chrono::steady_clock::now() - starttime).count() << " millisecond\n";
 }
 
 void full_debug(int x){cerr << x;}
