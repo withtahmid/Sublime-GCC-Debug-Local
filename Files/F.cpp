@@ -10,6 +10,7 @@ using namespace std;
 #define pb push_back
 #define all(v) v.begin(),v.end()
 #define len(v) ((int) v.size())
+typedef int_fast64_t ll;
 void solve(int);
 int main(){
   ios_base::sync_with_stdio(false);
