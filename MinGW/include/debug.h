@@ -4,27 +4,40 @@ typedef int_fast64_t ll;
 #include<bits/stdtr1c++.h>
 #include<ext/pb_ds/assoc_container.hpp>
 #include<ext/pb_ds/tree_policy.hpp>
+#include <sys/resource.h>
 using namespace __gnu_pbds;
 template<class T> 
 using ordered_set = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
-#define debug(...) cerr<<"[" << #__VA_ARGS__ <<"] --> "; _debug(__VA_ARGS__); cerr << endl
+// #define debug(...) cerr<<"[" << #__VA_ARGS__ <<"] --> "; full_debug(__VA_ARGS__); cerr << endl
 /////////////////////////////
-const string io_file_path = "./";
+const string io_file_path = "/home/withtahmid/SYNC/";
 const string input_file = "input.txt";
 const string output_file = "output.txt";
 const string error_file = "error.txt";
 auto starttime = chrono::steady_clock::now();
-void io(){
-	freopen((io_file_path + input_file).c_str(), "r", stdin);
-    freopen((io_file_path + output_file).c_str(), "w", stdout);
-    freopen((io_file_path + error_file).c_str(), "w", stderr);
-    time_t Time; time(&Time);cerr << ctime(&Time) << endl;
+// struct rusage usage;
+void init(int flag){
+	if(flag == 0){
+		// getrusage(RUSAGE_SELF, &usage);
+		freopen((io_file_path + input_file).c_str(), "r", stdin);
+	    freopen((io_file_path + output_file).c_str(), "w", stdout);
+	    freopen((io_file_path + error_file).c_str(), "w", stderr);
+	    time_t Time; time(&Time);cerr << ctime(&Time) << endl;
+	}
+	else if(flag == 1){
+		cerr << "\n\nElapsed time: " << chrono::duration_cast<chrono::milliseconds>
+    	(chrono::steady_clock::now() - starttime).count() << " millisecond\n";
+    	// cerr << "Memory usage: " << static_cast<double>(usage.ru_maxrss) / 1024.0 << " MB" << std::endl;
+	}
+	
+    
 }
 
-void finsh(){
-	cerr << "\n\nElapsed time: " << chrono::duration_cast<chrono::milliseconds>
-    (chrono::steady_clock::now() - starttime).count() << " millisecond\n";
-}
+
+    // Memory usage is in kilobytes (KB)
+    
+
+   
 
 void full_debug(int x){cerr << x;}
 void full_debug(int_fast64_t x){cerr << x;}
@@ -48,7 +61,7 @@ void full_debug(pair<T,V> x)
 }
 template<class T>
 void full_debug(vector<T>v){
-	cerr<<"Vector: " << typeid(v).name()<<endl<<"Size: "<<v.size()<<endl;
+	cerr<<"Vector: " << "Size: "<<v.size()<<endl;
 	cerr <<"[\n";
 	for(int i = 0; i<v.size(); i++){
 		cerr <<"\tv["<<i<<"]: ";
@@ -59,7 +72,7 @@ void full_debug(vector<T>v){
 }
 template<class T>
 void full_debug(set<T>s){
-	cerr<<"Set: " << typeid(s).name()<<endl<<"Size: "<<s.size()<<endl;
+	cerr<<"Set: " << "Size: "<<s.size()<<endl;
 	cerr <<"[\n";
 	ll indx = 0;
 	for(T i : s){
@@ -71,7 +84,7 @@ void full_debug(set<T>s){
 }
 template<class T>
 void full_debug(ordered_set<T>s){
-	cerr<<"Set: " << typeid(s).name()<<endl<<"Size: "<<s.size()<<endl;
+	cerr<<"Set: " << "Size: "<<s.size()<<endl;
 	cerr <<"[\n";
 	ll indx = 0;
 	for(T i : s){
@@ -83,7 +96,7 @@ void full_debug(ordered_set<T>s){
 }
 template<class T>
 void full_debug(multiset<T>s){
-	cerr<<"Multiset: " << typeid(s).name()<<endl<<"Size: "<<s.size()<<endl;
+	cerr<<"Multiset: " << "Size: "<<s.size()<<endl;
 	cerr <<"[\n";
 	ll indx = 0;
 	for(T i : s){
@@ -96,7 +109,7 @@ void full_debug(multiset<T>s){
 template<class T,class V>
 void full_debug(map<T,V>m) 
 { 
-	cerr<<"Map: " << typeid(m).name()<<endl<<"Size: "<<m.size()<<endl;
+	cerr<<"Map: " << "Size: "<<m.size()<<endl;
 	cerr << "{\n";
 	ll indx = 0;
 	for(auto i : m)
@@ -113,7 +126,7 @@ void full_debug(map<T,V>m)
 template<class T>
 void full_debug(stack<T>stk) 
 { 
-	cerr<<"Stack: " << typeid(stk).name()<<endl<<"Size: "<<stk.size()<<endl;
+	cerr<<"Stack: " << "Size: "<<stk.size()<<endl;
 	cerr << "[ \n";
 	int i = 0;
 	while(!stk.empty()){
@@ -136,7 +149,7 @@ void full_debug(stack<T>stk)
 template<class T>
 void full_debug(queue<T>Q) 
 { 
-	cerr<<"Queue: " << typeid(Q).name()<<endl<<"Size: "<<Q.size()<<endl;
+	cerr<<"Deque: " << "Size: "<<Q.size()<<endl;
 	cerr << "[ \n";
 	int i = 0;
 	while(!Q.empty()){
@@ -159,7 +172,7 @@ void full_debug(queue<T>Q)
 template<class T>
 void full_debug(deque<T>Q) 
 { 
-	cerr<<"Deque: " << typeid(Q).name()<<endl<<"Size: "<<Q.size()<<endl;
+	cerr<<"Deque: " << "Size: "<<Q.size()<<endl;
 	cerr << "[\n";
 	int i = 0;
 	int n = Q.size(); 
@@ -311,4 +324,13 @@ void dbg(T value, Args... args) {
 }
 
 
+char debugsep = '\n';
 
+void debug(){
+	cerr << endl;
+}
+template<typename T, typename... Args>
+void debug(T value, Args... args) {
+	full_debug(value); cerr << debugsep;
+	debug(args...);
+}
