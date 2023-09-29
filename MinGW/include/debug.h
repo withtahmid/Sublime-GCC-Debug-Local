@@ -4,33 +4,25 @@ typedef int_fast64_t ll;
 #include<bits/stdtr1c++.h>
 #include<ext/pb_ds/assoc_container.hpp>
 #include<ext/pb_ds/tree_policy.hpp>
-#include <sys/resource.h>
 using namespace __gnu_pbds;
 template<class T> 
 using ordered_set = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
 // #define debug(...) cerr<<"[" << #__VA_ARGS__ <<"] --> "; full_debug(__VA_ARGS__); cerr << endl
 /////////////////////////////
-const string io_file_path = "/home/withtahmid/SYNC/";
+const string io_file_path = "./";
 const string input_file = "input.txt";
 const string output_file = "output.txt";
 const string error_file = "error.txt";
+
+const string __elapsed__ = "\nReturned with exit code 0";
+
 auto starttime = chrono::steady_clock::now();
 // struct rusage usage;
-void init(int flag){
-	if(flag == 0){
-		// getrusage(RUSAGE_SELF, &usage);
-		freopen((io_file_path + input_file).c_str(), "r", stdin);
-	    freopen((io_file_path + output_file).c_str(), "w", stdout);
-	    freopen((io_file_path + error_file).c_str(), "w", stderr);
-	    time_t Time; time(&Time);cerr << ctime(&Time) << endl;
-	}
-	else if(flag == 1){
-		cerr << "\n\nElapsed time: " << chrono::duration_cast<chrono::milliseconds>
-    	(chrono::steady_clock::now() - starttime).count() << " millisecond\n";
-    	// cerr << "Memory usage: " << static_cast<double>(usage.ru_maxrss) / 1024.0 << " MB" << std::endl;
-	}
-	
-    
+void init(){
+	freopen((io_file_path + input_file).c_str(), "r", stdin);
+    freopen((io_file_path + output_file).c_str(), "w", stdout);
+    freopen((io_file_path + error_file).c_str(), "w", stderr);
+    time_t Time; time(&Time);cerr << ctime(&Time) << endl;
 }
 
 
@@ -325,6 +317,8 @@ void dbg(T value, Args... args) {
 
 
 char debugsep = '\n';
+
+
 
 void debug(){
 	cerr << endl;

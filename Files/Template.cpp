@@ -22,22 +22,24 @@ typedef int_fast64_t ll;
 typedef long double ld;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
+inline constexpr auto max(const auto f, const auto... r){return max({f, r...});}
+inline constexpr auto min(const auto f, const auto... r){return min({f, r...});}
 inline void operator>>(istream& istream, vector<auto>&v){for(auto& i:v){cin>>i;}}
 void solve(int);
-void before_tc();
+void precompute();
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
-    init(0);
+    init();
+    precompute();
     bool test_case = not true;
-    before_tc();
     int tc = 1; if(test_case){cin >> tc;}
     for(int i = 1; i <= tc; ++i){
         solve(i);
     }
-    init(1);
+    dbg(__elapsed__);
 }
-void before_tc(){}
-void solve([[maybe_unused]] const int case_no){
+void precompute(){}
+void solve(const int case_no){
     
 }
