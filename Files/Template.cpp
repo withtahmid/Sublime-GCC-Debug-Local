@@ -22,8 +22,8 @@ typedef int_fast64_t ll;
 typedef long double ld;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
-inline constexpr auto max(const auto f, const auto... r){return max({f, r...});}
-inline constexpr auto min(const auto f, const auto... r){return min({f, r...});}
+inline constexpr auto _max(const auto f, const auto... r){return max({f, r...});}
+inline constexpr auto _min(const auto f, const auto... r){return min({f, r...});}
 inline void operator>>(istream& istream, vector<auto>&v){for(auto& i:v){cin>>i;}}
 void solve(int);
 void precompute();
@@ -37,7 +37,7 @@ int main(){
     for(int i = 1; i <= tc; ++i){
         solve(i);
     }
-    dbg(__elapsed__);
+    dbg(__elapsed__());
 }
 void precompute(){}
 void solve(const int case_no){

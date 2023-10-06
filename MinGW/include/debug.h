@@ -9,12 +9,12 @@ template<class T>
 using ordered_set = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
 // #define debug(...) cerr<<"[" << #__VA_ARGS__ <<"] --> "; full_debug(__VA_ARGS__); cerr << endl
 /////////////////////////////
-const string io_file_path = "./";
+const string io_file_path = "/home/withtahmid/cp/IOFiles/";
 const string input_file = "input.txt";
 const string output_file = "output.txt";
 const string error_file = "error.txt";
 
-const string __elapsed__ = "\nReturned with exit code 0";
+// const string __elapsed__ = "\nReturned with exit code 0";
 
 auto starttime = chrono::steady_clock::now();
 // struct rusage usage;
@@ -25,12 +25,11 @@ void init(){
     time_t Time; time(&Time);cerr << ctime(&Time) << endl;
 }
 
-
-    // Memory usage is in kilobytes (KB)
-    
-
-   
-
+string __elapsed__(){
+	cerr << "\n\nElapsed time: " << chrono::duration_cast<chrono::milliseconds>
+    (chrono::steady_clock::now() - starttime).count() << " millisecond";
+    return "";
+}
 void full_debug(int x){cerr << x;}
 void full_debug(int_fast64_t x){cerr << x;}
 void full_debug(unsigned long long x){cerr << x; }
