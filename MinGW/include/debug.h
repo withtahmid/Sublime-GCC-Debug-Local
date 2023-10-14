@@ -9,7 +9,7 @@ template<class T>
 using ordered_set = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
 // #define debug(...) cerr<<"[" << #__VA_ARGS__ <<"] --> "; full_debug(__VA_ARGS__); cerr << endl
 /////////////////////////////
-const string io_file_path = "/home/withtahmid/cp/IOFiles/";
+const string io_file_path = "./";
 const string input_file = "input.txt";
 const string output_file = "output.txt";
 const string error_file = "error.txt";
