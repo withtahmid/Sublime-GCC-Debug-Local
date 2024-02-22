@@ -25,11 +25,15 @@ string __elapsed__(){
     (chrono::steady_clock::now() - starttime).count() << " millisecond";
     return "";
 }
-string __case__(int case_no){ 
+string __case__(int case_no){
 	return string(case_no > 1 ? "\n" : "") + string("---- Case ") + to_string(case_no) + string(" ---------\n");
 }
 
 inline void __dbg(){}
+
+inline void __dbg(const bool& x){
+	cerr << (x ? "true" : "false");
+}
 
 inline void __dbg(const auto& x){
 	cerr << x;
@@ -135,7 +139,7 @@ void dbg(Type value, Args... args) {
 // #include<ext/pb_ds/assoc_container.hpp>
 // #include<ext/pb_ds/tree_policy.hpp>
 // using namespace __gnu_pbds;
-// // template<class T> 
+// // template<class T>
 // // using tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update> = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
 // // #define debug(...) cerr<<"[" << #__VA_ARGS__ <<"] --> "; full_debug(__VA_ARGS__); cerr << endl
 // /////////////////////////////
@@ -177,8 +181,8 @@ void dbg(Type value, Args... args) {
 
 // // data stractures
 // template<class T,class V>
-// void full_debug(pair<T,V> x) 
-// { 
+// void full_debug(pair<T,V> x)
+// {
 // 	cerr << "{";
 // 	full_debug(x.first);
 // 	cerr << ",";
@@ -233,8 +237,8 @@ void dbg(Type value, Args... args) {
 // 	cerr <<"\n]";
 // }
 // template<class T,class V>
-// void full_debug(map<T,V>m) 
-// { 
+// void full_debug(map<T,V>m)
+// {
 // 	cerr<<"Map: " << "Size: "<<m.size()<<endl;
 // 	cerr << "{\n";
 // 	ll indx = 0;
@@ -250,8 +254,8 @@ void dbg(Type value, Args... args) {
 // 	cerr << "\n}";
 // }
 // template<class T>
-// void full_debug(stack<T>stk) 
-// { 
+// void full_debug(stack<T>stk)
+// {
 // 	cerr<<"Stack: " << "Size: "<<stk.size()<<endl;
 // 	cerr << "[ \n";
 // 	int i = 0;
@@ -263,7 +267,7 @@ void dbg(Type value, Args... args) {
 // 		else{
 // 			cerr<<"\t\t ";
 // 		}
-		
+
 // 		full_debug(stk.top());cerr <<"\t i: "<<i<<"\t";
 // 		cerr<<"\t|";
 // 		cerr <<"\n";
@@ -273,8 +277,8 @@ void dbg(Type value, Args... args) {
 // 	cerr << "\n]";
 // }
 // template<class T>
-// void full_debug(queue<T>Q) 
-// { 
+// void full_debug(queue<T>Q)
+// {
 // 	cerr<<"Deque: " << "Size: "<<Q.size()<<endl;
 // 	cerr << "[ \n";
 // 	int i = 0;
@@ -286,7 +290,7 @@ void dbg(Type value, Args... args) {
 // 		else{
 // 			cerr<<"\t\t ";
 // 		}
-		
+
 // 		full_debug(Q.front());cerr <<"\t i: "<<i<<"\t";
 // 		cerr<<"\t|";
 // 		cerr <<"\n";
@@ -296,12 +300,12 @@ void dbg(Type value, Args... args) {
 // 	cerr << "\n]";
 // }
 // template<class T>
-// void full_debug(deque<T>Q) 
-// { 
+// void full_debug(deque<T>Q)
+// {
 // 	cerr<<"Deque: " << "Size: "<<Q.size()<<endl;
 // 	cerr << "[\n";
 // 	int i = 0;
-// 	int n = Q.size(); 
+// 	int n = Q.size();
 // 	while(!Q.empty()){
 // 		cerr<<"\t| ";
 // 		if(!i){
@@ -313,7 +317,7 @@ void dbg(Type value, Args... args) {
 // 		else{
 // 			cerr<<"\t\t ";
 // 		}
-		
+
 // 		full_debug(Q.front()); cerr <<"\t i: "<<i<<"\t";
 // 		cerr<<"\t|";
 // 		cerr <<"\n";
@@ -348,8 +352,8 @@ void dbg(Type value, Args... args) {
 // }
 // // data stractures
 // template<class T,class V>
-// void _debug(pair<T,V> x) 
-// { 
+// void _debug(pair<T,V> x)
+// {
 // 	cerr << "{";
 // 	_debug(x.first);
 // 	cerr << ",";
@@ -412,8 +416,8 @@ void dbg(Type value, Args... args) {
 // }
 
 // template<class T,class V>
-// void _debug(map<T,V>m) 
-// { 
+// void _debug(map<T,V>m)
+// {
 // 	cerr << "{ ";
 // 	for(auto i : m)
 // 	{
@@ -426,8 +430,8 @@ void dbg(Type value, Args... args) {
 // 	cerr << " }";
 // }
 // template<class T>
-// void _debug(stack<T>stk) 
-// { 
+// void _debug(stack<T>stk)
+// {
 // 	cerr << "[ top -> ";
 // 	while(!stk.empty()){
 // 		_debug(stk.top());
@@ -437,8 +441,8 @@ void dbg(Type value, Args... args) {
 // 	cerr << " ]";
 // }
 // template<class T>
-// void _debug(queue<T>stk) 
-// { 
+// void _debug(queue<T>stk)
+// {
 // 	cerr << "[ frnt -> ";
 // 	while(!stk.empty()){
 // 		_debug(stk.front());
@@ -471,7 +475,3 @@ void dbg(Type value, Args... args) {
 // 	full_debug(value); cerr << debugsep;
 // 	debug(args...);
 // }
-
-
-
-
